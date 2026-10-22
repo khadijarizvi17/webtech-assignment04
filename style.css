@@ -1,0 +1,496 @@
+
+:root {
+    --ink: #172033;
+    --muted: #778197;
+    --line: #e5e9f0;
+    --canvas: #f4f6fa;
+    --accent: #6157e8;
+    --accent-dark: #4c43ca;
+    --shadow: 0 18px 55px rgba(31, 41, 70, .09);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #aaa5ff;
+    outline-offset: 2px;
+}
+
+.topbar {
+    min-height: 78px;
+    background: white;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 4.2%;
+    gap: 18px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    color: white;
+    font-size: 24px;
+    background: linear-gradient(135deg, #8179ff, #5549d9);
+}
+
+.brand strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.brand small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.button {
+    border: 1px solid transparent;
+    border-radius: 9px;
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 13px;
+    transition: 0.15s;
+    white-space: nowrap;
+}
+
+.button:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.button:disabled,
+.icon-button:disabled {
+    opacity: 0.32;
+    cursor: not-allowed;
+}
+
+.primary {
+    color: white;
+    background: var(--accent);
+}
+
+.primary:hover {
+    background: var(--accent-dark);
+}
+
+.secondary {
+    color: #3e4860;
+    background: white;
+    border-color: #dfe3ec;
+}
+
+.dark {
+    background: #20283b;
+    color: white;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 22px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 28px 4.2% 36px;
+    min-height: calc(100vh - 78px);
+}
+
+.editor-panel,
+.preview-panel {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 10px;
+    letter-spacing: 1.7px;
+    font-weight: 800;
+}
+
+.panel-heading h2 {
+    font-size: 20px;
+    margin: 4px 0 0;
+}
+
+.pill {
+    color: #6c668f;
+    background: #efedff;
+    padding: 6px 10px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.hint {
+    color: var(--muted);
+    font-size: 12px;
+    margin: 0 0 10px;
+}
+
+code {
+    background: #efedff;
+    color: #5148ca;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+#markdownInput {
+    width: 100%;
+    flex: 1;
+    min-height: 500px;
+    resize: vertical;
+    border: 1px solid #dfe4ed;
+    border-radius: 13px;
+    padding: 22px;
+    background: white;
+    color: #28324a;
+    box-shadow: var(--shadow);
+    font: 13px/1.85 Consolas, monospace;
+    tab-size: 2;
+}
+
+.editor-footer {
+    display: flex;
+    justify-content: space-between;
+    color: #8992a4;
+    font-size: 11px;
+    padding: 12px 2px;
+}
+
+.slide-frame {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    min-height: 420px;
+    background: #e9edf5;
+    border: 1px solid #e1e6ef;
+    border-radius: 15px;
+}
+
+.slide-content {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 100%;
+    overflow: auto;
+    overflow-wrap: anywhere;
+    background: white;
+    border: 1px solid #e9edf2;
+    border-radius: 5px;
+    box-shadow: 0 12px 30px #18213b13;
+    padding: clamp(25px, 4vw, 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slide-content h1,
+.slide-content h2,
+.slide-content h3 {
+    line-height: 1.15;
+}
+
+.slide-content h1 {
+    font-size: clamp(25px, 3.1vw, 46px);
+    margin: 0 0 20px;
+    color: #202744;
+}
+
+.slide-content h2 {
+    font-size: clamp(20px, 2.1vw, 30px);
+    margin: 10px 0 13px;
+    color: #4540a8;
+}
+
+.slide-content h3 {
+    font-size: clamp(17px, 1.8vw, 24px);
+    margin: 10px 0;
+}
+
+.slide-content p,
+.slide-content li {
+    font-size: clamp(12px, 1.3vw, 18px);
+    line-height: 1.7;
+    color: #525d72;
+}
+
+.slide-content ul,
+.slide-content ol {
+    padding-left: 1.4em;
+}
+
+.slide-content li {
+    margin: 6px 0;
+}
+
+.slide-content blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 4px 0 4px 16px;
+    margin: 10px 0;
+    color: #5f6680;
+    background: #f8f7ff;
+}
+
+.slide-content pre {
+    background: #20283b;
+    color: #f0f2ff;
+    border-radius: 8px;
+    padding: 14px;
+    overflow: auto;
+}
+
+.slide-content pre code {
+    color: inherit;
+    background: transparent;
+}
+
+.slide-content a {
+    color: var(--accent);
+}
+
+.slide-content img {
+    max-width: 100%;
+}
+
+.slide-content hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+    width: 100%;
+}
+
+.slide-controls,
+.presentation-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 2px 0;
+}
+
+.icon-button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #dfe3ec;
+    border-radius: 9px;
+    background: white;
+    color: #3b4560;
+    font-size: 19px;
+}
+
+.slide-count {
+    color: #6f7890;
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 42px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+.control-spacer {
+    flex: 1;
+}
+
+/* Presentation mode */
+
+.presentation-screen {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    background: #171d2d;
+    display: flex;
+    flex-direction: column;
+    padding: 20px clamp(18px, 5vw, 72px) 18px;
+}
+
+.presentation-screen[hidden] {
+    display: none;
+}
+
+.presentation-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #dce1f1;
+    font-size: 12px;
+}
+
+.presentation-brand {
+    font-weight: 700;
+}
+
+.presentation-stage {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 0;
+}
+
+.presentation-stage .slide-content {
+    width: min(100%, 1200px);
+    max-height: 100%;
+    aspect-ratio: 16 / 9;
+    padding: clamp(30px, 6vw, 95px);
+}
+
+.presentation-stage .slide-content h1 {
+    font-size: clamp(32px, 5vw, 68px);
+}
+
+.presentation-stage .slide-content h2 {
+    font-size: clamp(24px, 3vw, 42px);
+}
+
+.presentation-stage .slide-content p,
+.presentation-stage .slide-content li {
+    font-size: clamp(16px, 1.7vw, 24px);
+}
+
+.presentation-controls {
+    width: min(100%, 1200px);
+    margin: 0 auto;
+}
+
+.presentation-controls .icon-button,
+.presentation-controls .button {
+    background: #252e43;
+    color: #eef0fa;
+    border-color: #39435b;
+}
+
+.presentation-controls .slide-count {
+    color: #c4cbe0;
+}
+
+/* Save notification */
+
+.toast {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background: #20283b;
+    color: white;
+    border-radius: 10px;
+    padding: 11px 16px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+    z-index: 30;
+    box-shadow: var(--shadow);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Responsive layout */
+
+@media (max-width: 850px) {
+    .workspace {
+        grid-template-columns: 1fr;
+        padding: 20px 4%;
+    }
+
+    #markdownInput {
+        min-height: 330px;
+    }
+
+    .slide-frame {
+        min-height: 300px;
+    }
+
+    .brand small {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        padding: 12px 4%;
+    }
+
+    .brand strong {
+        font-size: 13px;
+    }
+
+    .brand-mark {
+        width: 34px;
+        height: 34px;
+    }
+
+    .top-actions {
+        gap: 5px;
+    }
+
+    .top-actions .button {
+        font-size: 11px;
+        padding: 8px;
+    }
+
+    .slide-frame {
+        padding: 7px;
+        min-height: 230px;
+    }
+
+    .slide-content {
+        padding: 16px;
+    }
+
+    .presentation-screen {
+        padding: 12px;
+    }
+
+    .presentation-top .button {
+        font-size: 11px;
+    }
+}

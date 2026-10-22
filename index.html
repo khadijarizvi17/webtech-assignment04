@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Slides</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="topbar">
+       
+<div class="brand"></div>
+
+
+        <div class="top-actions">
+            <button id="newBtn" class="button secondary">New</button>
+            <button id="saveBtn" class="button primary">Save</button>
+            <button id="presentBtn" class="button dark">Present ▶</button>
+        </div>
+    </header>
+
+    <main id="editorScreen" class="workspace">
+
+        <!-- Markdown Editor -->
+        <section class="editor-panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Markdown Editor</h2>
+                        </div>
+                       </div>
+          
+
+            <textarea
+                id="markdownInput"
+                spellcheck="false"
+            ></textarea>
+
+            <div class="editor-footer">
+                <span id="saveStatus">Not saved yet</span>
+                <span>Ctrl + S to save</span>
+            </div>
+        </section>
+
+        <!-- Live Slide Preview -->
+        <section class="preview-panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Slide Preview</h2>
+                </div>
+                <span id="previewLabel" class="pill">Slide 1</span>
+            </div>
+
+            <div class="slide-frame">
+                <article
+                    id="previewSlide"
+                    class="slide-content"
+                    aria-live="polite"
+                ></article>
+            </div>
+
+            <div class="slide-controls">
+                <button
+                    id="previewPrev"
+                    class="icon-button"
+                    aria-label="Previous slide"
+                >←</button>
+
+                <span id="previewCount" class="slide-count">
+                    1 / 1
+                </span>
+
+                <button
+                    id="previewNext"
+                    class="icon-button"
+                    aria-label="Next slide"
+                >→</button>
+
+                <span class="control-spacer"></span>
+
+                <button
+                    id="previewFullscreen"
+                    class="button secondary"
+                >⛶ Full screen</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Presentation Screen -->
+    <main id="presentationScreen"
+          class="presentation-screen"
+          hidden>
+
+        <div class="presentation-top">
+            <span class="presentation-brand">▤ Markdown Slides</span>
+            <button id="exitPresentBtn" class="button secondary">
+                ✕ Exit presentation
+            </button>
+        </div>
+
+        <div class="presentation-stage">
+            <article
+                id="presentationSlide"
+                class="slide-content"
+            ></article>
+        </div>
+
+        <div class="presentation-controls">
+            <button
+                id="presentPrev"
+                class="icon-button"
+                aria-label="Previous slide"
+            >←</button>
+
+            <span id="presentationCount" class="slide-count">
+                1 / 1
+            </span>
+
+            <button
+                id="presentNext"
+                class="icon-button"
+                aria-label="Next slide"
+            >→</button>
+
+            <span class="control-spacer"></span>
+
+            <button
+                id="presentationFullscreen"
+                class="button secondary"
+            >⛶ Full screen</button>
+        </div>
+
+    </main>
+
+    <div id="toast" class="toast" role="status"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
